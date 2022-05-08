@@ -9,7 +9,7 @@ const CommentForm = ({
   const isTextareaDisabled = text.length === 0;
   const onSubmit = (event) => {
     event.preventDefault();
-    handleSubmit(username,text);
+    handleSubmit(username, text);
     setText("");
     setUsername("");
   };
@@ -22,7 +22,7 @@ const CommentForm = ({
         placeholder="Name ..."
         onChange={(e) => setUsername(e.target.value)}
       />
-    
+
       <textarea
         className="comment-form-textarea"
         value={text}
@@ -33,7 +33,7 @@ const CommentForm = ({
       <button className="comment-form-button" disabled={isTextareaDisabled}>
         {submitLabel}
       </button>
-      
+
     </form>
   );
 };

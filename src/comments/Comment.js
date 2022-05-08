@@ -1,5 +1,4 @@
 import CommentForm from "./CommentForm";
-import Comments from "./Comments";
 
 const Comment = ({
   comment,
@@ -10,12 +9,12 @@ const Comment = ({
   parentId = null,
   getReplies
 }) => {
-  
+
   const isReplying =
     activeComment &&
     activeComment.id === comment.id &&
     activeComment.type === "replying";
-  
+
   const replyId = parentId ? parentId : comment.id; // assign id of parent
   console.log(parentId, comment.id, replyId);
   const createdAt = new Date(comment.createdAt).toLocaleDateString(); // create date to display 
@@ -30,19 +29,19 @@ const Comment = ({
         <div className="comment-text">{comment.body}</div>
         <div
           className="comment-actions"
-          onClick={() => setActiveComment({ id: comment.id, type: "replying" , parentId: parentId})  }
+          onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}
         > Reply </div>
-          
+
 
         {isReplying && (
           <CommentForm
             submitLabel="Reply"
-           
-            handleSubmit={(username, text) => addComment(username,text, replyId)}
-            
+
+            handleSubmit={(username, text) => addComment(username, text, replyId)}
+
           />
         )
-}
+        }
 
         {replies.length > 0 && (
           <div className="replies">

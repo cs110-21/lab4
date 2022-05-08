@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 
@@ -24,13 +24,6 @@ const Comments = ({ commentsUrl, currentUserId }) => {
       setActiveComment(null);
     });
   };
-  
-
-  useEffect(() => {
-    getComments().then((data) => {
-      setBackendComments(data);
-    });
-  }, []);
 
   return (
     <div className="comments">
@@ -52,40 +45,10 @@ const Comments = ({ commentsUrl, currentUserId }) => {
   );
 };
 
-// Helper function
-export const getComments = async () => {
-  return [
-    {
-      id: "1",
-      body: "First comment",
-      username: "Mariam",
-      userId: "100", // not really needed but can be used in a later example
-      parentId: null,
-      createdAt: "2022-05-02T23:00:33.010+02:00",
-    },
-    {
-      id: "2",
-      body: "First nested comment",
-      username: "Mariam",
-      userId: "100", // not really needed but can be used in a later example
-      parentId: 1,
-      createdAt: "2022-05-02T23:00:33.010+02:00",
-    },
-    {
-      id: "3",
-      body: "second nested comment comment",
-      username: "Mariam",
-      userId: "100", // not really needed but can be used in a later example
-      parentId: 2,
-      createdAt: "2022-05-02T23:00:33.010+02:00",
-    }
-  ];
-};
-
 // Helper Function
-export const createComment = async (username,text, parentId = null) => {
+export const createComment = async (username, text, parentId = null) => {
   let commentId = Math.random().toString(36).substr(2, 9);
-  console.log("New comment:", parentId,text, commentId);
+  console.log("New comment:", parentId, text, commentId);
   return {
     id: commentId,
     body: text,
