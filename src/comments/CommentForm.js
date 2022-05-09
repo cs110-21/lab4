@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
 const CommentForm = ({
   handleSubmit,
@@ -15,26 +16,17 @@ const CommentForm = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <textarea
-        className="comment-form-textarea"
-        value={username}
-        placeholder="Name ..."
-        onChange={(e) => setUsername(e.target.value)}
-      />
-
-      <textarea
-        className="comment-form-textarea"
-        value={text}
-        placeholder="Write a new post"
-        onChange={(e) => setText(e.target.value)}
-      />
-
-      <button className="comment-form-button" disabled={isTextareaDisabled}>
-        {submitLabel}
-      </button>
-
-    </form>
+    <Form onSubmit={onSubmit}>
+      <Form.Group className="mb-3">
+        <Form.Control placeholder="Name..." value={username} onChange={(e) => setUsername(e.target.value)}/>
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Control placeholder="Write a new post..." value={text} onChange={(e) => setText(e.target.value)}/>
+      </Form.Group>
+      <Button variant="primary" type="submit" disabled={isTextareaDisabled}>
+        Submit
+      </Button>
+    </Form>
   );
 };
 
