@@ -1,4 +1,5 @@
 import CommentForm from "./CommentForm";
+import Votes from "./Votes";
 
 const Comment = ({
   comment,
@@ -7,6 +8,7 @@ const Comment = ({
   activeComment,
   addComment,
   parentId = null,
+  //depth = 0,
   getReplies
 }) => {
 
@@ -29,11 +31,15 @@ const Comment = ({
         <div className="comment-text">{comment.body}</div>
         <div
           className="comment-actions"
-          onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}
+          onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId})}
         > Reply </div>
-
+        
+        <div className="voting">
+          <Votes />
+        </div>
 
         {isReplying && (
+        
           <CommentForm
             submitLabel="Reply"
 

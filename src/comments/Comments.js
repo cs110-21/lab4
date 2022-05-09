@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
+import Votes from "./Votes";
 
 
 const Comments = ({ commentsUrl, currentUserId }) => {

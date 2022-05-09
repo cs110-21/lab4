@@ -83,3 +83,22 @@
 .replies {
   margin-top: 30px;
 }
+
+.upVote {
+  margin-right: 8px;
+  margin-top: -10px;
+  float: right; 
+  position: static;
+}
+
+.downVote {
+  margin-right: 8px;
+  float: right;
+  position: static;
+}
+
+.displayVotes {
+  float: right;
+  margin-right: -15px;
+  position: static;
+}
