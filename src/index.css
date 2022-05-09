@@ -99,6 +99,7 @@
 
 .displayVotes {
   float: right;
-  margin-right: -15px;
+  margin-right: -20px;
   position: static;
+  margin-top: 22px;
 }
