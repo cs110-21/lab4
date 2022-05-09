@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Stack } from "react-bootstrap";
 import CommentForm from "./CommentForm";
 import Votes from "./Votes";
 
@@ -23,12 +23,14 @@ const Comment = ({
   const createdAt = new Date(comment.createdAt).toLocaleDateString(); // create date to display 
 
   return <Container>
-    <Col>{comment.username}</Col>
-    <Col>{comment.body}</Col>
-    <Row>
-      <Col><Button onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</Button></Col>
-      <Col><Votes /></Col>
-    </Row>
+    <Stack direction="horizontal">
+      <Stack>
+        <Col>{comment.username}</Col>
+        <Col>{comment.body}</Col>
+        <Col><Button onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</Button></Col>
+      </Stack>
+      <Votes />
+    </Stack>
     {isReplying && (
 
       <CommentForm
@@ -56,53 +58,6 @@ const Comment = ({
       </div>
     )}
   </Container>
-
-  return (
-    <div key={comment.id} className="comment">
-      <div className="comment-right-part">
-        <div className="comment-content">
-          <div className="comment-author">{comment.username}</div>
-          <div>{createdAt}</div>
-        </div>
-        <div className="comment-text">{comment.body}</div>
-        <div
-          className="comment-actions"
-          onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}
-        > Reply </div>
-
-        <div className="voting">
-          <Votes />
-        </div>
-
-        {isReplying && (
-
-          <CommentForm
-            submitLabel="Reply"
-
-            handleSubmit={(username, text) => addComment(username, text, replyId)}
-
-          />
-        )
-        }
-
-        {replies.length > 0 && (
-          <div className="replies">
-            {replies.map((reply) => (
-              <Comment
-                comment={reply}
-                key={reply.id}
-                setActiveComment={setActiveComment}
-                activeComment={activeComment}
-                addComment={addComment}
-                parentId={comment.id}
-                replies={() => Comment.getReplies(comment.id)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
 };
 
 export default Comment;
