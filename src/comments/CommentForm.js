@@ -23,7 +23,7 @@ const CommentForm = ({
       <Form.Group className="mb-3">
         <Form.Control placeholder="Write a new post..." value={text} onChange={(e) => setText(e.target.value)}/>
       </Form.Group>
-      <Button variant="primary" type="submit" disabled={isTextareaDisabled}>
+      <Button variant="outline-primary" type="submit" disabled={isTextareaDisabled}>
         Submit
       </Button>
     </Form>

@@ -22,12 +22,12 @@ const Comment = ({
   console.log(parentId, comment.id, replyId);
   const createdAt = new Date(comment.createdAt).toLocaleDateString(); // create date to display 
 
-  return <Container>
+  return <Container className="border">
     <Stack direction="horizontal">
       <Stack>
         <Col>{comment.username}</Col>
         <Col>{comment.body}</Col>
-        <Col><Button onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</Button></Col>
+        <Col><Button variant="outline-primary" onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</Button></Col>
       </Stack>
       <Votes />
     </Stack>
