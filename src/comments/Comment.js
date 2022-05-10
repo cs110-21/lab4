@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Stack } from "react-bootstrap";
+import { Col, Stack } from "react-bootstrap";
 import CommentForm from "./CommentForm";
 import Votes from "./Votes";
 
@@ -9,7 +9,6 @@ const Comment = ({
   activeComment,
   addComment,
   parentId = null,
-  getReplies
 }) => {
 
   const isReplying =
@@ -17,13 +16,13 @@ const Comment = ({
     activeComment.id === comment.id &&
     activeComment.type === "replying";
 
-  const replyId = parentId ? parentId : comment.id; // assign id of parent
+  const replyId = parentId ? parentId : comment.id;
   console.log(parentId, comment.id, replyId);
 
   return <div className="commentCard">
     <Stack direction="horizontal">
-      <Stack className="commentText">
-        <Col><h5>{comment.username}</h5></Col>
+      <Stack className="commentBlock">
+        <Col className="commentUsername">{comment.username}</Col>
         <Col>{comment.body}</Col>
         <Col><div className="replyButton" onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</div></Col>
       </Stack>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronUpIcon } from '@primer/octicons-react';
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { Button, Col, Container, Stack } from "react-bootstrap";
+import { Button, Col, Stack } from "react-bootstrap";
 
 const Votes = () => {
     const [currentVotes, newVoteCount] = useState(0);

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
-import Votes from "./Votes";
-import { Card, Container, Stack } from "react-bootstrap";
+import { Card, Stack } from "react-bootstrap";
 
 
 const Comments = ({ commentsUrl, currentUserId }) => {
@@ -29,7 +28,7 @@ const Comments = ({ commentsUrl, currentUserId }) => {
 
   return <Stack gap={3}>
     <Card>
-      <Card.Header><h2>New Post</h2></Card.Header>
+      <Card.Header className="header"><h1>New Post</h1></Card.Header>
       <Card.Body><CommentForm submitLabel="Write" handleSubmit={addComment} /></Card.Body>
     </Card>
     {rootComments.map((rootComment) => (
