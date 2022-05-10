@@ -27,23 +27,21 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     });
   };
 
-  return <Stack>
+  return <Stack gap={3}>
     <Card>
       <Card.Header><h2>New Post</h2></Card.Header>
       <Card.Body><CommentForm submitLabel="Write" handleSubmit={addComment} /></Card.Body>
     </Card>
-    <Container>
-      {rootComments.map((rootComment) => (
-        <Comment
-          key={rootComment.id}
-          comment={rootComment}
-          replies={getReplies(rootComment.id)}
-          activeComment={activeComment}
-          setActiveComment={setActiveComment}
-          addComment={addComment}
-        />
-      ))}
-    </Container>
+    {rootComments.map((rootComment) => (
+      <Comment
+        key={rootComment.id}
+        comment={rootComment}
+        replies={getReplies(rootComment.id)}
+        activeComment={activeComment}
+        setActiveComment={setActiveComment}
+        addComment={addComment}
+      />
+    ))}
   </Stack>
 };
 
