@@ -2,6 +2,7 @@ import { useState } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import Votes from "./Votes";
+import { Card, Container, Stack } from "react-bootstrap";
 
 
 const Comments = ({ commentsUrl, currentUserId }) => {
@@ -26,24 +27,24 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     });
   };
 
-  return (
-    <div className="comments">
-      <div className="comment-form-title">New Post</div>
-      <CommentForm submitLabel="Write" handleSubmit={addComment} />
-      <div className="comments-container">
-        {rootComments.map((rootComment) => (
-          <Comment
-            key={rootComment.id}
-            comment={rootComment}
-            replies={getReplies(rootComment.id)}
-            activeComment={activeComment}
-            setActiveComment={setActiveComment}
-            addComment={addComment}
-          />
-        ))}
-      </div>
-    </div>
-  );
+  return <Stack>
+    <Card>
+      <Card.Header><h2>New Post</h2></Card.Header>
+      <Card.Body><CommentForm submitLabel="Write" handleSubmit={addComment} /></Card.Body>
+    </Card>
+    <Container>
+      {rootComments.map((rootComment) => (
+        <Comment
+          key={rootComment.id}
+          comment={rootComment}
+          replies={getReplies(rootComment.id)}
+          activeComment={activeComment}
+          setActiveComment={setActiveComment}
+          addComment={addComment}
+        />
+      ))}
+    </Container>
+  </Stack>
 };
 
 // Helper Function

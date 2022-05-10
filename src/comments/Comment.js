@@ -27,7 +27,7 @@ const Comment = ({
       <Stack>
         <Col>{comment.username}</Col>
         <Col>{comment.body}</Col>
-        <Col><Button variant="outline-primary" onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</Button></Col>
+        <Col><Button variant="link" onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</Button></Col>
       </Stack>
       <Votes />
     </Stack>
