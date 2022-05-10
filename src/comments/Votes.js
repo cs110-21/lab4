@@ -7,9 +7,9 @@ const Votes = () => {
     const [currentVotes, newVoteCount] = useState(0);
 
     return <Stack className="displayVotes">
-        <Col className="m-auto"><Button variant="link" onClick={() => newVoteCount(currentVotes + 1)}><ChevronUpIcon /></Button></Col>
-        <div className="m-auto  voteNumber">{currentVotes}</div>
-        <Col className="m-auto"><Button variant="link" onClick={() => newVoteCount(currentVotes - 1)}><ChevronDownIcon /></Button></Col>
+        <Col className="ms-auto"><Button variant="link" onClick={() => newVoteCount(currentVotes + 1)}><ChevronUpIcon /></Button></Col>
+        <div className="ms-auto voteNumber">{currentVotes}</div>
+        <Col className="ms-auto"><Button variant="link" onClick={() => newVoteCount(currentVotes - 1)}><ChevronDownIcon /></Button></Col>
     </Stack>
 }
 
