@@ -4,7 +4,7 @@ import Comments from "./comments/Comments";
 
 const App = () => {
   return (
-    <Container>
+    <Container className="mainWindow">
       <Comments/>
     </Container>
   );

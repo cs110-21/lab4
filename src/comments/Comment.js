@@ -22,7 +22,7 @@ const Comment = ({
 
   return <div className="commentCard">
     <Stack direction="horizontal">
-      <Stack>
+      <Stack className="commentText">
         <Col><h5>{comment.username}</h5></Col>
         <Col>{comment.body}</Col>
         <Col><div className="replyButton" onClick={() => setActiveComment({ id: comment.id, type: "replying", parentId: parentId })}>Reply</div></Col>

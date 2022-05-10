@@ -1,3 +1,7 @@
+.mainWindow {
+  padding-top: 15px;
+}
+
 .replyButton {
   color: #0B6EFD;
 }
@@ -10,8 +14,12 @@
   border-radius: 5px;
   border-top: 1px solid #DFDFDF;
   border-left: 2px solid #0B6EFD;
-  padding-top: 10px;
   padding-left: 10px;
+}
+
+.commentText {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .voteNumber {
